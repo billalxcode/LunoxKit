@@ -1,4 +1,5 @@
 {
+    "manifest": {"url": "https://raw.githubusercontent.com/billalxcode/LunoxKit/main/src/manifest.json"},
     "wordlists": [
         {"name": "https://github.com/danTaler", "path": "wordlists/subdoDanTaler.txt", "url": "https://github.com/danTaler/WordLists/raw/master/Subdomain.txt", "type": "subdomain"},
         {"name": "https://github.com/rbsec 100 word", "path": "wordlists/rbsec100.txt", "url": "https://raw.githubusercontent.com/rbsec/dnscan/master/subdomains-100.txt", "type": "subdomain"},
@@ -16,5 +17,12 @@
         {"name": "Brute Sploit wordlist indonesia_10", "path": "wordlists/brutesploit_indonesia_10.txt", "url": "https://github.com/screetsec/BruteSploit/raw/master/wlist/indonesia/indonesia_10", "type": "password"},
         {"name": "Brute Sploit 6 digit number", "path": "wordlists/brutesploit_6_digit.txt", "url": "https://github.com/screetsec/BruteSploit/raw/master/wlist/number/6_digit.txt", "type": "password"},
         {"name": "The RObot Admin Finder Wordlist", "path": "wordlists/therobot_admin_wordlist.txt", "url": "https://raw.githubusercontent.com/the-robot/admin-finder/master/wordlist.txt"}
+    ],
+    "backdoors": [
+        {"name": "PHP Backdoor AK47 Shell", "path": "backdoors/ak47shell.php", "url": "https://raw.githubusercontent.com/backdoorhub/shell-backdoor-list/master/shell/php/ak47shell.php", "type": "shell"},
+        {"name": "PHP Backdoor Alfa Shell", "path": "backdoors/alfa.php", "url": "https://raw.githubusercontent.com/backdoorhub/shell-backdoor-list/master/shell/php/alfa.php", "type": "shell"},
+        {"name": "PHP Backdoor B374K Shell", "path": "backdoors/b374k.php", "url": "https://raw.githubusercontent.com/backdoorhub/shell-backdoor-list/master/shell/php/b374k.php", "type": "shell"},
+        {"name": "PHP Backdoor Indoxploit shell", "path": "backdoors/indoxploit.php", "url": "https://raw.githubusercontent.com/backdoorhub/shell-backdoor-list/master/shell/php/indoxploit.php", "type": "shell"},
+        {"name": "PHP Backdoor Marion001 shell", "path": "backdoors/marion001.php", "url": "https://raw.githubusercontent.com/backdoorhub/shell-backdoor-list/master/shell/php/marion001.php", "type": "shell"}
     ]
 }
