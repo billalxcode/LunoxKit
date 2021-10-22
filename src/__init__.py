@@ -1,0 +1,6 @@
+__name__ = "Lunox Kit"
+__version__ = "1.0"
+__author__ = "EauroNox"
+__copyright__ = "GPL v2"
+__created__ = "19 Okt 2021"
+__updated__ = "-"
