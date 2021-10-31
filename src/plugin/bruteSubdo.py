@@ -7,14 +7,14 @@ from multiprocessing import Process
 from urllib.parse import urlparse
 from prettytable import PrettyTable
 
-moduleDir = os.path.join(os.getcwd(), "/src")
+moduleDir = os.path.join(os.getcwd())
 sys.path.insert(0, moduleDir)
 from utils import createHeaders
 
 class BruteSubdo:
     def __init__(self) -> None:
-        from terminal import Terminal
-        from wordlist import Wordlist
+        from src.terminal import Terminal
+        from src.wordlist import Wordlist
         
         self.terminal = Terminal()
         self.wordlist = Wordlist()

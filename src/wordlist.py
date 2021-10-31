@@ -3,9 +3,9 @@ import os
 import time
 import glob
 import sys
-from manifest import loadManifest
-from terminal import Terminal
 from colorama import Fore
+from .manifest import loadManifest
+from .terminal import Terminal
 
 class Wordlist:
     def __init__(self) -> None:

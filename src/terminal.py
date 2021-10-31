@@ -3,7 +3,7 @@ import sys
 import readline
 import requests
 import socket
-from __init__ import __version__, __created__, __author__, __updated__
+from .__init__ import __version__, __created__, __author__, __updated__
 from colorama import Fore
 from datetime import datetime
 

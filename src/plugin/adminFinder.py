@@ -6,18 +6,20 @@ from colorama import Fore
 from utils import createHeaders
 from prettytable import PrettyTable
 
-moduleDir = os.path.join(os.getcwd(), "/src")
+moduleDir = os.path.join(os.getcwd())
 sys.path.insert(0, moduleDir)
 from utils import createHeaders
 
 class AdminFinder:
     def __init__(self) -> None:
-        from terminal import Terminal
-        from wordlist import Wordlist
+        from src.terminal import Terminal
+        from src.wordlist import Wordlist
+        from src.handler import Handler
 
         self.terminal = Terminal()
         self.wordlist = Wordlist()
-    
+        self.handler = Handler()
+
         self.result_ok = []
         self.result_bad = []
 
@@ -31,6 +33,17 @@ class AdminFinder:
             except (requests.exceptions.MissingSchema):
                 self.terminal.console("Missing scheme, change to default scheme (http)", "error")
                 domain = f"http://{domain}"
+            except (requests.exceptions.ConnectionError):
+                parsers = urlparse(domain)
+                scheme = parsers.scheme
+                port = parsers.port
+                if port is None:
+                    if scheme == "http":
+                        port = 80
+                    elif scheme == "https":
+                        port = 443
+                self.handler.connectionError(parsers.hostname, port, isQuit=True)
+                
 
     def showAll(self):
         if len(self.result_ok) > 1:
