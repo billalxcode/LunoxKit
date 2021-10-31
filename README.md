@@ -23,7 +23,7 @@ python3 build.py
 ```
 - Jalankan alat
 ```shell
-python3 src/main.py
+python3 LunoxKit.py
 ```
 
 
@@ -50,7 +50,7 @@ python3 build.py
 ```
 - Run tool
 ```shell
-python3 src/main.py
+python3 LunoxKit.py
 ```
 
 # Preview
