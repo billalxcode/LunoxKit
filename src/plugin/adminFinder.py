@@ -43,7 +43,6 @@ class AdminFinder:
                     elif scheme == "https":
                         port = 443
                 self.handler.connectionError(parsers.hostname, port, isQuit=True)
-                
 
     def showAll(self):
         if len(self.result_ok) > 1:
@@ -67,7 +66,8 @@ class AdminFinder:
                 status_code = 0
                 try:
                     status_code = requests.get(urls, timeout=3, headers=createHeaders()).status_code
-                    self.result_ok.append({"urls": urls, "status_code": status_code})
+                    if status_code == 200:
+                        self.result_ok.append({"urls": urls, "status_code": status_code})
                 except UnicodeDecodeError:
                     self.result_ok.append({"urls": urls, "status_code": status_code})
                 except requests.exceptions.ConnectionError:
@@ -109,7 +109,8 @@ class AdminFinder:
                 else:
                     self.terminal.console(f"Total word {Fore.GREEN}{len(wordList)}")
                     bruteStatus = self.brute(domain, wordList)
-                    self.showAll()
+                    if bruteStatus is True:
+                        self.showAll()
             except KeyboardInterrupt: return False
 
 def run():
