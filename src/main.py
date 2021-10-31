@@ -51,6 +51,19 @@ class Apps:
                         self.handler.moduleError(e.msg, syntaxError=True)
                 elif i == "3" or i == "03":
                     try:
+                        from .modules import backdoors
+                        backdoors.run()
+                    except ImportError as e:
+                        if e.name is None:
+                            self.handler.moduleError(e.msg, unknownParrent=True)
+                        else:
+                            self.handler.moduleError(e.name, importError=True)
+                    except ModuleNotFoundError as e:
+                        self.handler.moduleError(e.msg, moduleNotFound=True)
+                    except SyntaxError as e:
+                        self.handler.moduleError(e.msg, syntaxError=True)
+                elif i == "4" or i == "04":
+                    try:
                         from .plugin import adminFinder
                         adminFinder.run()
                     except ImportError as e:
@@ -62,7 +75,7 @@ class Apps:
                         self.handler.moduleError(e.msg, moduleNotFound=True)
                     except SyntaxError as e:
                         self.handler.moduleError(e.msg, syntaxError=True)
-                elif i == "4" or i == "04":
+                elif i == "5" or i == "05":
                     try:
                         from .modules import exploitModules
                         exploitModules.run()
