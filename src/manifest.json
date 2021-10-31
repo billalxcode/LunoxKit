@@ -16,7 +16,10 @@
         {"name": "Brute Sploit wordlist indonesia_9", "path": "wordlists/brutesploit_indonesia_9.txt", "url": "https://github.com/screetsec/BruteSploit/raw/master/wlist/indonesia/indonesia_9", "type": "password"},
         {"name": "Brute Sploit wordlist indonesia_10", "path": "wordlists/brutesploit_indonesia_10.txt", "url": "https://github.com/screetsec/BruteSploit/raw/master/wlist/indonesia/indonesia_10", "type": "password"},
         {"name": "Brute Sploit 6 digit number", "path": "wordlists/brutesploit_6_digit.txt", "url": "https://github.com/screetsec/BruteSploit/raw/master/wlist/number/6_digit.txt", "type": "password"},
-        {"name": "The RObot Admin Finder Wordlist", "path": "wordlists/therobot_admin_wordlist.txt", "url": "https://raw.githubusercontent.com/the-robot/admin-finder/master/wordlist.txt"}
+        {"name": "The RObot Admin Finder Wordlist", "path": "wordlists/therobot_admin_wordlist.txt", "url": "https://raw.githubusercontent.com/the-robot/admin-finder/master/wordlist.txt"},
+        {"name": "SecLists Cracked Hashes milw0rm dictionary", "path": "wordlists/milw0rm-dictionary","url": "https://github.com/danielmiessler/SecLists/raw/master/Passwords/Cracked-Hashes/milw0rm-dictionary.txt"},
+        {"name": "SecLists bt4 password", "path": "wordlists/bt4-password.txt", "url": "https://github.com/danielmiessler/SecLists/raw/master/Passwords/bt4-password.txt"},
+        {"name": "SecLists dutch pass wordlist", "path": "wordlists/dutch_passwordlist.txt", "url": "https://github.com/danielmiessler/SecLists/raw/master/Passwords/dutch_passwordlist.txt"}
     ],
     "backdoors": [
         {"name": "PHP Backdoor AK47 Shell", "path": "backdoors/ak47shell.php", "url": "https://raw.githubusercontent.com/backdoorhub/shell-backdoor-list/master/shell/php/ak47shell.php", "type": "shell"},
