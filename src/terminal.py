@@ -17,6 +17,7 @@ class Terminal:
     def __init__(self) -> None:
         self.timer = Timer()
         self.myaddr = socket.gethostbyname(socket.gethostname())
+
     def exit(self):
         sys.exit()
 
@@ -64,7 +65,6 @@ class Terminal:
         except (requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout):
             return False
 
-    
     def showNoImplement(self):
         self.console("Sorry, this feature is not implemented yet. Please choose another", "warning")
         i = self.question("Back? (Y/n) > ")
@@ -99,8 +99,9 @@ Network: {network}{Fore.RESET}\tADDRESS: {Fore.YELLOW}{self.myaddr}\n\n{Fore.RES
         menuLists = [
             "Subdomain Finder (Brute Force)",
             "Download Wordlist",
+            "Download Backdoors",
             "Admin Login Finder",
-            "Exploit"
+            "Exploit",
         ]
 
         print ("Menu: ")
