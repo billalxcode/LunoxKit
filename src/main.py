@@ -64,7 +64,7 @@ class Apps:
                         self.handler.moduleError(e.msg, syntaxError=True)
                 elif i == "4" or i == "04":
                     try:
-                        from modules import exploitModules
+                        from .modules import exploitModules
                         exploitModules.run()
                     except ImportError as e:
                         if e.name is None:
