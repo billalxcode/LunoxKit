@@ -6,26 +6,21 @@ Lunox adalah sebuah alat yang dapat menguji sebuah sistem keamanan. Lunox dibang
 
 ## Cara pasang
 Alat ini dapat berjalan di platform linux saja, kemungkinan update berikut nya sudah dapat di jalankan di platform seperti Windows ataupun MacOS. Alat ini sudah di uji di platform Linux dengan Distro Ubuntu 20.04.
+
 ### Linux
-Untuk memasang alat i/ni, masukan perintah berikut:
+Untuk memasang alat ini, masukan perintah berikut:
 - Install Paket Pendukung
 ```shell
-sudo apt-get install python3 python3-pip git
+> sudo apt-get install python3 python3-pip git
 ```
 - Cloning alat dari github
 ```shell
-git clone https://github.com/billalxcode/LunoxKit
-```
-- Pasang pendukung python
-```shell
-cd LunoxKit
-python3 build.py
+> git clone https://github.com/billalxcode/LunoxKit
 ```
 - Jalankan alat
 ```shell
-python3 LunoxKit.py
+> python3 LunoxKit.py
 ```
-
 
 # English
 ## Introduction
@@ -37,24 +32,22 @@ This tool can run on the Linux platform only, it is possible that the next updat
 To install this tool, enter the following command:
 - Install Support Packages
 ```shell
-sudo apt-get install python3 python3-pip git
+> sudo apt-get install python3 python3-pip git
 ```
 - Cloning tool from github
 ```shell
-git clone https://github.com/billalxcode/LunoxKit
-```
-- Install python support
-```shell
-cd LunoxKit
-python3 build.py
+> git clone https://github.com/billalxcode/LunoxKit
 ```
 - Run tool
 ```shell
-python3 LunoxKit.py
+> python3 LunoxKit.py
 ```
 
 # Preview
+## LunoxKit v2
 ![Main Menu](./images/preview_mainmenu.png)
+## Port scanner module
+![Port Scan Module](images/modules/portscan_demo.png)
 
 # License
 Alat ini berlisensi GPL (General Public License)
