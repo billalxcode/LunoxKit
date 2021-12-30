@@ -1,73 +1,88 @@
-from importlib import import_module
-import json
+# Build a tool to binary file
+# Author: Billal Fauzan
+#=== Lunox Kit generate binary file ===#
 import os
 import sys
+import glob
 import time
-import subprocess
+import pathlib
+import shutil
 
-class Build:
-    def __init__(self) -> None:
-        self.configFilename = os.path.join(os.getcwd() + "/setup.json")
-        self.timeDelay = 0.1
+CWD = os.getcwd()
+BUILD_PATH = os.path.join(CWD, "build")
+SOURCE_PATH = os.path.join(CWD, "src")
+SUPPORT_FILES = ["LunoxKit.py", "release", "version", "env.lnx"]
+start_time = time.time()
 
-    #=== Load Configuration File ===#
-    def loadConfig(self):
-        if os.path.isfile(self.configFilename) is True:
-            print (f"INFO: Config path '{self.configFilename}'")
-            with open(self.configFilename) as F:
-                content = F.read()
+def calculate_time():
+    global start_time
+    return round(time.time() - start_time)
+
+def question_yn(msg):
+    user_input = input(msg)
+    if user_input.lower() == "y":
+        return True
+    else:
+        return False
+
+def logging(message, clear_line = False, end = None):
+    message += f" => '{calculate_time()}'s"
+    print(message)
+    if clear_line is True:
+        sys.stdout.write("\033[F")
+        sys.stdout.write("\033[K")
+
+def check_build_directory():
+    global BUILD_PATH
+    if os.path.isdir(BUILD_PATH) is False:
+        print(f"Make a directory...")
+        os.makedirs(BUILD_PATH)
+    else:
+        print(f"Directory already exists, remove all file from directory")
+        join_patern = os.path.join(BUILD_PATH, "*")
+        all_files = glob.glob(join_patern)
+        print (f"Total files: {len(all_files)}")
+        for files in all_files:
+            if os.path.isfile(files):
+                logging(f"Delete file '{os.path.basename(files)[:10]}'", end="\r")
                 try:
-                    contentJson = json.loads(content)
-                    self.config = contentJson
-                    try:
-                        self.timeDelay = self.config["timeDelay"]
-                    except KeyError:
-                        self.timeDelay = 0.1
-                except json.JSONDecodeError:
-                    print ("ERROR: Cannot load config")
-                    sys.exit()
-        else:
-            print ("ERROR: No config file")
-            sys.exit()
+                    os.remove(files)
+                except: pass
+            else:
+                logging(f"Delete dir '{os.path.basename(files)}'", end="\r")
+                try:
+                    os.removedirs(files)
+                except: pass
+        print()
+        os.removedirs(BUILD_PATH)
 
-    def installModule(self, name: str = ""):
-        print (f"Installing module {name}...")
-        commands = [self.config['cmd']['pip'], "install", name]
-        subprocess.call(commands, stdout=subprocess.PIPE)
+def find_path(path):
+    result = []
+    join_patern = os.path.join(path, "*")
+    logging(f"Find all files from '{path}'", clear_line=True, end="\r")
+    time.sleep(0.0)
+    for files in glob.glob(join_patern):
+        if os.path.isfile(files):
+            result.append(files)
+        elif os.path.isdir(files):
+            res = find_path(files)
+            result.extend(res)
+    return result
 
-    def loadModules(self):
-        requirements = self.config["requirements"]
-        for requirement in requirements:
-            print (f"Looking requirement '{requirement}'")
-            if requirement == "pyinstaller":
-                requirement = "PyInstaller"
-            try:
-                import_module(name=requirement)
-            except ModuleNotFoundError:
-                self.installModule(requirement)
+def get_all_source():
+    global SOURCE_PATH
+    sources = find_path(SOURCE_PATH)
+    # print()
+    print (f"Total files: {len(sources)}")
+    return sources
 
-    def delay(self):
-        time.sleep(self.timeDelay)
-
-    def showinfo(self):
-        requirements = ", ".join(self.config["requirements"])
-        cmds = ", ".join(self.config["cmd"])
-        print (f"Tools name: {self.config['name']}")
-        self.delay()
-        print (f"Version code: {self.config['version']}")
-        self.delay()
-        print (f"Requirements: {requirements}")
-        self.delay()
-        print (f"Command Require: {cmds}")
-        self.delay()
-        print (f"Platform: {sys.platform}")
-        self.delay()
-
-    def start(self):
-        self.loadConfig()
-        self.showinfo()
-        self.loadModules()
+def copy_all_files():
+    sources = get_all_source()
+    print (f"Copy file from 'src/' to 'build/'")
+    shutil.copytree(SOURCE_PATH, BUILD_PATH)
+    print (f"Copy support file...")
+    SUPPORT_FILE = [os.path.join(os.getcwd(), x) for x in SUPPORT_FILES]
+    print (SUPPORT_FILE)
 
 if __name__ == "__main__":
-    script = Build()
-    script.start()
+    print ("This script not implemented!")
