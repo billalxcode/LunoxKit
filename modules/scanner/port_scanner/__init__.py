@@ -169,7 +169,6 @@ class Core:
                         f"{index}", f"{port}", vendor, f"{color}{status}{COLOR_RESET}"
                     ]
                     tables.add_row(rows)
-            print (tables)
             jsons = []
             if len(jsons) == 1:
                 self.terminal.console(f"Failed to resolve '{self.TARGET}', no targets were specified.", MESSAGE_WARNING, False)
